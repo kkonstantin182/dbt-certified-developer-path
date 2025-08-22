@@ -1,0 +1,18 @@
+[project]
+name = "dbt-certified-developer-path"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "kkonstantin182",email = "k.konstantin182@yandex.ru"}
+]
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "dbt-core (>=1.10,<2.0)",
+    "dbt-bigquery (>=1.10,<2.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
