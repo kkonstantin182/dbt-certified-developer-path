@@ -1,12 +1,25 @@
 version: 2
 
 sources:
-  - name: jaffle_shop           # logical name for the dataset
+  - name: jaffle_shop           # logical name for the dataset (source)
     database: dbt-tutorial      # BigQuery project
     schema: jaffle_shop         # BigQuery dataset
     tables:
-      - name: customers
+      - name: customers # logical name for the table (source)
+        identifier: customers # BigQuery table
+        columns:
+          - name: id
+            data_tests:
+            - unique
+            - not_null
+
       - name: orders
+        # We can skip identifier, as it has the name (orders) in both dbt and DWH.
+        columns:
+          - name: id
+            data_tests:
+            - unique
+            - not_null
     
   - name: stripe
     database: dbt-tutorial
