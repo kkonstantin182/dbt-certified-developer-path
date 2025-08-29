@@ -5,3 +5,7 @@ dbt_packages/
 logs/
 .secrets
 dbt_internal_packages/
+.DS_Store
+*.pages
+.venv
+

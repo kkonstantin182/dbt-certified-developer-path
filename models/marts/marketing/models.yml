@@ -1,0 +1,30 @@
+models:
+  - name: dim_customers
+    description: Customer overview data mart, offering key details for each unique customer. One row per customer.
+    data_tests:
+      - dbt_utils.expression_is_true:
+          expression: "lifetime_spend_pretax + lifetime_tax_paid = lifetime_spend"
+    columns:
+      - name: customer_id
+        description: The unique key of the orders mart.
+        data_tests:
+          - not_null
+          - unique
+  
+  - name: dim_locations
+    description: Location overview data mart, offering key details for each unique location. One row per location.
+    columns:
+      - name: location_id
+        description: The unique key.
+        data_tests:
+          - not_null
+          - unique
+  
+  - name: dim_products
+    description: Product overview data mart, offering key details for each unique product. One row per product.
+    columns:
+      - name: product_id
+        description: The unique key.
+        data_tests:
+          - not_null
+          - unique

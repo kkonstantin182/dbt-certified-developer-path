@@ -1,0 +1,22 @@
+version: 2
+
+sources:
+  - name: ecom                # logical name for the dataset (source)
+    database: dbt-learnign-path   # BigQuery project
+    schema: raw               # BigQuery dataset
+    description: E-commerce data for the Jaffle Shop
+    tables:
+      - name: customers
+        identifier: customers # BigQuery table
+        description: One record per person who has purchased one or more items
+      - name: orders
+        description: One record per order (consisting of one or more order items)
+        loaded_at_field: ordered_at
+      - name: items
+        description: Items included in an order
+      - name: stores
+        loaded_at_field: opened_at
+      - name: products
+        description: One record per SKU for items sold in stores
+      - name: supplies
+        description: One record per supply per SKU of items sold in stores
